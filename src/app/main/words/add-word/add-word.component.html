@@ -1,0 +1,35 @@
+  <app-header></app-header>
+
+  <div class="container">
+    <form class="col s12" [formGroup]="newWordForm" (ngSubmit)="onSubmit()">
+      <h4 style="text-align:center;">Add new word</h4>
+      <div class="row">
+        <div class="input-field col s4">
+          <i class="material-icons prefix">textsms</i>
+          <input id="first_name" type="text" class="validate" (keyup)="russianText($event)" formControlName="russian">
+          <label for="first_name">Russian</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">textsms</i>
+          <input id="last_name" type="text" class="validate" (keyup)="germanText($event)" formControlName="german">
+          <label for="last_name">German</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">merge_type</i>
+          <input id="type" type="text" class="validate" (keyup)="speechPartChange($event)" formControlName="speechPart">
+          <label for="type">noun, pronoun, verb, adjective (one of these)</label>
+        </div>
+      </div>
+
+      <div class="button-bar">
+        <button class="btn indigo darken-1" type="submit" name="action" style="margin-right:2px;">Submit
+          <i class="material-icons right">send</i>
+        </button>
+
+        <button class="btn indigo darken-1" (click)="viewWords()" name="action">View
+          <i class="material-icons right">pageview</i>
+        </button>
+
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,23 @@
+  <app-header></app-header>
+ <div class="container" style="margin-bottom:5%;">
+ <h3 style="text-align:center;">List of words</h3>
+   <table>
+     <thead>
+       <tr>
+         <th>German</th>
+         <th>Russian</th>
+         <th>Type</th>
+         <th>Edit</th>
+       </tr>
+     </thead>
+
+     <tbody>
+        <tr *ngFor="let word of allWords">
+         <td>{{word.german}}</td>
+         <td>{{word.russian}}</td>
+         <td>{{detectSpeechType(word)}}</td>
+         <td><button (click)="editWord(word.id)" class="btn indigo darken-1">Edit</button></td>
+       </tr>
+     </tbody>
+   </table>
+ </div>

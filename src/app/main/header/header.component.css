@@ -1,0 +1,15 @@
+/* nav{
+  background-color:#3949ab!important;
+} */
+
+.brand-logo{
+  margin-left:2%;
+}
+
+.right{
+  margin-right:2%;
+}
+
+.selected{
+  background-color:rgba(0,0,0,0.1);
+}

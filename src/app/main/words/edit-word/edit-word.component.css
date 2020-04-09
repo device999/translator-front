@@ -1,0 +1,23 @@
+
+.button-bar {
+  float: right;
+}
+
+.margin-left {
+  margin-left: 1vw;
+}
+
+
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  box-shadow: 0 1px 0 0 #3949ab;
+  border-bottom: 1px solid #3949ab;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label{
+  color: #3949ab;
+}
+
+.input-field .prefix.active{
+  color: #3949ab;
+}

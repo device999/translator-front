@@ -1,0 +1,30 @@
+
+.button-bar {
+  float: right;
+}
+
+.margin-left {
+  margin-left: 1vw;
+}
+
+.collection.with-header .collection-item {
+  padding:5px 15px!important;
+}
+
+.collection .collection-item.active{
+  background-color:#3949ab!important;
+  color: white;
+}
+.collection a.collection-item{
+  color:black;
+}
+
+.error-answer{
+  background-color: #ff5252!important;
+  color: white !important;
+}
+
+.correct-answer{
+  background-color: #00695c!important;
+  color: white!important;
+}

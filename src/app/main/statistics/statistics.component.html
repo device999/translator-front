@@ -1,0 +1,21 @@
+   <app-header></app-header>
+
+   <div class="container" style="margin-bottom:5%;">
+     <table>
+       <thead>
+         <tr>
+           <th>Word</th>
+           <th>Correct Answers</th>
+           <th>Wrong Answers</th>
+         </tr>
+       </thead>
+
+       <tbody>
+         <tr *ngFor="let statistic of statistics">
+           <td>{{statistic.word}}</td>
+           <td>{{statistic.corrects}} </td>
+           <td>{{statistic.wrongs}} </td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
