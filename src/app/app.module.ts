@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { DemoMaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -36,7 +35,6 @@ import { QuizService } from './main/quiz/random/quiz.service';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    DemoMaterialModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule

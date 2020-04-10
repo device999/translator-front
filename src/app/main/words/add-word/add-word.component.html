@@ -4,25 +4,45 @@
     <form class="col s12" [formGroup]="newWordForm" (ngSubmit)="onSubmit()">
       <h4 style="text-align:center;">Add new word</h4>
       <div class="row">
-        <div class="input-field col s4">
-          <i class="material-icons prefix">textsms</i>
-          <input id="first_name" type="text" class="validate" (keyup)="russianText($event)" formControlName="russian">
-          <label for="first_name">Russian</label>
-        </div>
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <i class="material-icons prefix">textsms</i>
           <input id="last_name" type="text" class="validate" (keyup)="germanText($event)" formControlName="german">
           <label for="last_name">German</label>
         </div>
-        <div class="input-field col s4">
-          <i class="material-icons prefix">merge_type</i>
-          <input id="type" type="text" class="validate" (keyup)="speechPartChange($event)" formControlName="speechPart">
-          <label for="type">noun, pronoun, verb, adjective (one of these)</label>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">textsms</i>
+          <input id="first_name" type="text" class="validate" (keyup)="russianText($event)" formControlName="russian">
+          <label for="first_name">Russian</label>
         </div>
       </div>
 
-      <div class="button-bar">
-        <button class="btn indigo darken-1" type="submit" name="action" style="margin-right:2px;">Submit
+      <div class="col s12 button-bar">
+        <button class="btn indigo darken-1" (click)="onClickNoun()" name="action" style="margin-right:2px;">Noun
+          <i class="material-icons right">send</i>
+        </button>
+
+        <button class="btn indigo darken-1" (click)="onClickVerb()" name="action" style="margin-right:2px;">Verb
+          <i class="material-icons right">send</i>
+        </button>
+
+
+        <button class="btn indigo darken-1" (click)="onClickPronoun()" name="action" style="margin-right:2px;">Pronoun
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    <div style="width:100%;height:7vh!important;"></div>
+      <div class="col s12 button-bar ">
+        <button class="btn indigo darken-1" name="action" (click)="onClickAdverb()" style="margin-right:2px;">Adverb
+          <i class="material-icons right">send</i>
+        </button>
+
+        <button class="btn indigo darken-1" (click)="onClickAdjective()" name="action"
+          style="margin-right:2px;">Adjective
+          <i class="material-icons right">send</i>
+        </button>
+
+
+        <button class="btn indigo darken-1" (click)="onClickOther()" name="action" style="margin-right:2px;">Other
           <i class="material-icons right">send</i>
         </button>
 
