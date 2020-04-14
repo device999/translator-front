@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './main/header/header.component';
 import { WordService } from './main/words/word.service';
 import { QuizService } from './main/quiz/random/quiz.service';
-
+import { LoadDataComponent } from './main/quiz/load-data/load-data.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { QuizService } from './main/quiz/random/quiz.service';
     AddWordComponent,
     EditWordComponent,
     RandomComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoadDataComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { QuizService } from './main/quiz/random/quiz.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     StatisticsService,

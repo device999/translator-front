@@ -26,8 +26,8 @@ export class RandomComponent implements OnInit, OnDestroy {
   quiz: Quiz[] = [];
   possibleAnswers: string[] = [];
   temporalQuiz: Quiz;
+  numberOfQuestions: number = 0;
   mySubscription: any;
-  gameType: string;
   classes: string[] = [];
   roundEnded: boolean = false;
   step: number;
@@ -53,7 +53,6 @@ export class RandomComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.temporalQuiz = null;
-    this.gameType = null;
     this.quiz = [];
     if (this.mySubscription) {
       this.mySubscription.unsubscribe();
@@ -63,38 +62,14 @@ export class RandomComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    const value = this.route.snapshot.paramMap.get('id');
     const step = Number(this.route.snapshot.paramMap.get('step'));
-    if (value.toLowerCase() === 'noun') {
-      this.quizService.getNounQuizzWords();
-      this.gameType = 'Noun';
-    } else if (value.toLowerCase() === 'adverb') {
-      this.quizService.getAdverbQuizzWords();
-      this.gameType = 'Adverb';
-    } else if (value.toLowerCase() === 'verb') {
-      this.quizService.getVerbQuizzWords();
-      this.gameType = 'Verb';
-    } else if (value.toLowerCase() === 'adjective') {
-      this.quizService.getAdjectiveQuizzWords();
-      this.gameType = 'Adjective';
-    } else if (value.toLowerCase() === 'pronoun') {
-      this.quizService.getPronounQuizzWords();
-      this.gameType = 'Pronoun';
-    } else if (value.toLowerCase() === 'other') {
-      this.quizService.getOtherQuizzWords();
-      this.gameType = 'Other';
-    } else if (value.toLowerCase() === 'random') {
-      this.quizService.getAllQuizzWords();
-      this.gameType = 'Random';
-    }
-
     this.quizService.getQuizes().subscribe(data => {
       if (data.length > 0) {
         this.quiz = data;
         this.temporalQuiz = data[step];
         this.possibleAnswers = this.temporalQuiz.wrongAnswers;
         this.possibleAnswers.push(this.temporalQuiz.correctAnswer);
-        this.shuffle(this.possibleAnswers);
+        this.numberOfQuestions = data.length;
       }
     });
     this.loadStyling();
@@ -108,13 +83,14 @@ export class RandomComponent implements OnInit, OnDestroy {
     if (this.quiz[step] != null) {
       this.router.navigate(['/play/' + this.route.snapshot.paramMap.get('id') + '/' + step]);
     } else {
+      this.quizService.deleteQuiz();
       this.router.navigate(['/stats']);
     }
 
   }
-
-  shuffle(array: string[]): string[] {
-    return array.sort(() => Math.random() - 0.5);
+  quitQuiz(){
+    this.quizService.deleteQuiz();
+    this.router.navigate(['/stats']);
   }
 
   onClickAnswer(answer: string, pos: number) {

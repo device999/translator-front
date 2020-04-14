@@ -7,6 +7,7 @@ import { AddWordComponent } from './main/words/add-word/add-word.component';
 import { AllWordsComponent } from './main/words/all-words/all-words.component';
 import { StatisticsComponent } from './main/statistics/statistics.component';
 import { EditWordComponent } from './main/words/edit-word/edit-word.component';
+import { LoadDataComponent } from './main/quiz/load-data/load-data.component';
 
 const routes: Routes = [
   {
@@ -15,13 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'play',
-    redirectTo: 'play/random/0',
+    redirectTo: 'play/random',
     pathMatch: 'full'
   },
   {
     path: 'play/:id',
-    redirectTo: 'play/:id/0',
-    pathMatch: 'full'
+    component: LoadDataComponent,
   },
   {
     path: 'play/:id/:step',
