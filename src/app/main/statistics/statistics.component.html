@@ -1,7 +1,7 @@
    <app-header></app-header>
    <h4 *ngIf="rowData.length == 0" style="text-align:center;">Loading data</h4>
    <div *ngIf="rowData.length > 0" class="container flex-aligned">
-     <ag-grid-angular class="ag-theme-alpine custom-grid-style"
+     <ag-grid-angular class="ag-theme-alpine custom-grid-style" pagination="true" paginationAutoPageSize="true"
        [rowData]="rowData" [columnDefs]="columnDefs">
      </ag-grid-angular>
    </div>

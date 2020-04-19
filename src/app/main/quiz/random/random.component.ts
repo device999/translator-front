@@ -59,6 +59,9 @@ export class RandomComponent implements OnInit, OnDestroy {
     }
   }
 
+  shuffle(array: string[]): string[] {
+    return array.sort(() => Math.random() - 0.5);
+  }
 
 
   ngOnInit() {
@@ -67,8 +70,10 @@ export class RandomComponent implements OnInit, OnDestroy {
       if (data.length > 0) {
         this.quiz = data;
         this.temporalQuiz = data[step];
+        this.temporalQuiz.isWrong = true;
         this.possibleAnswers = this.temporalQuiz.wrongAnswers;
         this.possibleAnswers.push(this.temporalQuiz.correctAnswer);
+        this.shuffle(this.possibleAnswers);
         this.numberOfQuestions = data.length;
       }
     });
@@ -98,12 +103,14 @@ export class RandomComponent implements OnInit, OnDestroy {
       if (answer === this.temporalQuiz.correctAnswer) {
         this.classes[pos] += ' correct-answer';
         this.quizService.incrementCorrectAnswer(this.temporalQuiz.id).subscribe();
+        this.temporalQuiz.isWrong = false;
       } else {
         this.classes[pos] += ' error-answer';
         this.quizService.incrementWrongAnswer(this.temporalQuiz.id).subscribe();
         this.showCorrectAnswer();
       }
       this.roundEnded = true;
+      this.quizService.loadNewElementToQuiz(this.temporalQuiz);
     }
 
   }

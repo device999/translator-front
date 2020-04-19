@@ -10,11 +10,11 @@ import { StatModel } from './statistics';
 export class StatisticsComponent implements OnInit {
   constructor(private statService: StatisticsService ) { }
   columnDefs = [
-    {headerName: 'Counter', field: 'id', sortable: true},
-    {headerName: 'Word', field: 'word', filter: true },
-    {headerName: 'Correct Answers', field: 'corrects', sortable: true },
-    {headerName: 'Wrong Answers', field: 'wrongs', sortable: true},
-    {headerName: 'Type', field: 'wordType', sortable: true, filter: true}
+    {headerName: 'German', field: 'german', filter: true, width: 250 },
+    {headerName: 'Russian', field: 'russian', filter: true, width: 250 },
+    {headerName: 'Correct', field: 'corrects', sortable: true, width: 150},
+    {headerName: 'Wrong', field: 'wrongs', sortable: true, width: 150},
+    {headerName: 'Type', field: 'wordType', sortable: true, filter: true, width: 250}
   ];
   rowData = [];
 

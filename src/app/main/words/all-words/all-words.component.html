@@ -1,23 +1,11 @@
   <app-header></app-header>
- <div class="container" style="margin-bottom:5%;">
- <h3 style="text-align:center;">List of words</h3>
-   <table>
-     <thead>
-       <tr>
-         <th>German</th>
-         <th>Russian</th>
-         <th>Type</th>
-         <th>Edit</th>
-       </tr>
-     </thead>
-
-     <tbody>
-        <tr *ngFor="let word of allWords">
-         <td>{{word.german}}</td>
-         <td>{{word.russian}}</td>
-         <td>{{detectSpeechType(word)}}</td>
-         <td><button (click)="editWord(word.id)" class="btn indigo darken-1">Edit</button></td>
-       </tr>
-     </tbody>
-   </table>
- </div>
+  <div class="container">
+    <h3 style="text-align:center;">List of words</h3>
+    <h4 *ngIf="rowData.length == 0" style="text-align:center;">Loading data</h4>
+    <div *ngIf="rowData.length > 0" class="flex-aligned">
+      <ag-grid-angular #agGrid class="ag-theme-alpine custom-grid-style" id="myGrid" (gridReady)="onGridReady($event)"
+        (selectionChanged)="onSelectionChanged($event)" (cellValueChanged)="onCellValueChanged($event)" pagination="true" paginationAutoPageSize="true" [rowData]="rowData" [columnDefs]="columnDefs"
+        suppressSizeToFit="true" [defaultColDef]="defaultColDef" [rowSelection]="rowSelection">
+      </ag-grid-angular>
+    </div>
+  </div>

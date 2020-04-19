@@ -3,4 +3,5 @@ export interface Quiz {
   word: string;
   correctAnswer: string;
   wrongAnswers: string [];
+  isWrong: boolean | null;
 }

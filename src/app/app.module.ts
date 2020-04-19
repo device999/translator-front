@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatisticsComponent } from './main/statistics/statistics.component';
 import { AllWordsComponent } from './main/words/all-words/all-words.component';
 import { AddWordComponent } from './main/words/add-word/add-word.component';
-import { EditWordComponent } from './main/words/edit-word/edit-word.component';
+
 import { RandomComponent } from './main/quiz/random/random.component';
 import { StatisticsService } from './main/statistics/statistics.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,8 @@ import { WordService } from './main/words/word.service';
 import { QuizService } from './main/quiz/random/quiz.service';
 import { LoadDataComponent } from './main/quiz/load-data/load-data.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ResultsComponent } from './main/quiz/results/results.component';
+
 
 
 @NgModule({
@@ -28,10 +30,10 @@ import { AgGridModule } from 'ag-grid-angular';
     EntryComponent,
     AllWordsComponent,
     AddWordComponent,
-    EditWordComponent,
     RandomComponent,
     HeaderComponent,
-    LoadDataComponent
+    LoadDataComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
