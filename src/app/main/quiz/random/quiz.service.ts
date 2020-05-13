@@ -53,56 +53,56 @@ export class QuizService {
 
   getAllQuizzWords() {
     this.deleteQuiz();
-    this.http.get < Quiz[] > ('http://localhost:8080/words').subscribe(data => {
+    this.http.get < Quiz[] > ('http://localhost:9015/words').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getNounQuizzWords() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/nouns').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/nouns').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getPronounQuizzWords() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/pronouns').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/pronouns').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getVerbQuizzWords() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/verbs').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/verbs').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getAdverbQuizzWords() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/adverbs').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/adverbs').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getAdjectiveQuizzWords() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/adjectives').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/adjectives').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getOtherQuizzWords() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/others').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/others').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
 
   getMistakes() {
     this.deleteQuiz();
-    return this.http.get < Quiz[] > ('http://localhost:8080/words/mistakes').subscribe(data => {
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/mistakes').subscribe(data => {
       this.loadedQuiz.next(data);
     });
   }
@@ -110,11 +110,11 @@ export class QuizService {
   // statistic
 
   incrementCorrectAnswer(wordId: number): any {
-    return this.http.get('http://localhost:8080/stats/' + wordId + '/correct');
+    return this.http.get('http://localhost:9015/stats/' + wordId + '/correct');
   }
 
   incrementWrongAnswer(wordId: number): any {
-    return this.http.get('http://localhost:8080/stats/' + wordId + '/wrong');
+    return this.http.get('http://localhost:9015/stats/' + wordId + '/wrong');
   }
 
 }

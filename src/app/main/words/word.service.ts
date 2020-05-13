@@ -22,18 +22,22 @@ export class WordService {
   constructor(private http: HttpClient) {}
 
   postWord(body: Words): Observable < Words > {
-    return this.http.post < Words > ('http://localhost:8080/words', body);
+    return this.http.post < Words > ('http://localhost:9015/words', body);
   }
 
   putWord(body: Words, id: number): Observable < Words > {
-    return this.http.put < Words > ('http://localhost:8080/words/' + id, body);
+    return this.http.put < Words > ('http://localhost:9015/words/' + id, body);
   }
 
   getAllWords(): Observable < Words[] > {
-    return this.http.get < Words[] > ('http://localhost:8080/words/all');
+    return this.http.get < Words[] > ('http://localhost:9015/words/all');
   }
 
   getWordById(id: number): Observable < Words > {
-    return this.http.get < Words > ('http://localhost:8080/words/' + id);
+    return this.http.get < Words > ('http://localhost:9015/words/' + id);
+  }
+
+  deleteWordById(id: number): Observable < string > {
+    return this.http.delete<string>('http://localhost:9015/words/' + id);
   }
 }

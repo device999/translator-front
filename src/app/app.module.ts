@@ -20,6 +20,8 @@ import { QuizService } from './main/quiz/random/quiz.service';
 import { LoadDataComponent } from './main/quiz/load-data/load-data.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ResultsComponent } from './main/quiz/results/results.component';
+import { AlertComponent } from './main/entry/alert/alert.component';
+import { AlertModule } from './main/entry/alert/alert.module';
 
 
 
@@ -42,6 +44,7 @@ import { ResultsComponent } from './main/quiz/results/results.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    AlertModule,
     AgGridModule.withComponents([])
   ],
   providers: [

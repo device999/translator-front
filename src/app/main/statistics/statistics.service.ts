@@ -10,7 +10,7 @@ export class StatisticsService {
   constructor(private http: HttpClient) {}
 
   getStatisticData(): Observable<StatModel[]> {
-    return this.http.get<StatModel[]>('http://localhost:8080/stats');
+    return this.http.get<StatModel[]>('http://localhost:9015/stats');
   }
 
 }

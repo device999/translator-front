@@ -2,10 +2,16 @@
   <div class="container">
     <h3 style="text-align:center;">List of words</h3>
     <h4 *ngIf="rowData.length == 0" style="text-align:center;">Loading data</h4>
-    <div *ngIf="rowData.length > 0" class="flex-aligned">
+    <div *ngIf="rowData.length > 0" class="flex">
+      <button class="btn indigo darken-1" style="float:right" (click)="removeItem()"><i class="material-icons center">delete</i>
+      </button>
+      <br/>
       <ag-grid-angular #agGrid class="ag-theme-alpine custom-grid-style" id="myGrid" (gridReady)="onGridReady($event)"
-        (selectionChanged)="onSelectionChanged($event)" (cellValueChanged)="onCellValueChanged($event)" pagination="true" paginationAutoPageSize="true" [rowData]="rowData" [columnDefs]="columnDefs"
+        (selectionChanged)="onSelectionChanged($event)" (cellValueChanged)="onCellValueChanged($event)"
+        pagination="true" paginationAutoPageSize="true" [rowData]="rowData" [columnDefs]="columnDefs"
         suppressSizeToFit="true" [defaultColDef]="defaultColDef" [rowSelection]="rowSelection">
       </ag-grid-angular>
+
     </div>
+<alert></alert>
   </div>

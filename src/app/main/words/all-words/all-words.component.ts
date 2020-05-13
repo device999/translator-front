@@ -15,6 +15,9 @@ import {
 import {
   AgGridAngular
 } from 'ag-grid-angular';
+import {
+  AlertService
+} from '../../entry/alert/alert.service';
 
 @Component({
   selector: 'app-all-words',
@@ -28,9 +31,15 @@ export class AllWordsComponent implements OnInit {
   private defaultColDef;
   private rowSelection;
   private rowData: Words[];
+  private selectedId = 0;
+  options = {
+    autoClose: false,
+    keepAfterRouteChange: false
+  };
+
 
   public allWords: Words[] = [];
-  constructor(private wordService: WordService, private router: Router) {
+  constructor(private wordService: WordService, private router: Router, private alertService: AlertService) {
     this.columnDefs = [{
         headerName: 'Id',
         field: 'id',
@@ -72,9 +81,16 @@ export class AllWordsComponent implements OnInit {
 
   onSelectionChanged(event) {
     const selectedRows: any = this.gridApi.getSelectedRows();
-    console.log(selectedRows);
+    this.selectedId = selectedRows[0].id;
   }
-
+  removeItem() {
+    if (this.selectedId === 0) {
+      this.alertService.error('Word is not selected', this.options);
+    } else {
+      this.wordService.deleteWordById(this.selectedId).subscribe();
+      this.alertService.success('Deleted', this.options);
+    }
+  }
   ngOnInit() {
     this.wordService.getAllWords().subscribe(data => {
       data.forEach(element => {
