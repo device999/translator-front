@@ -1,0 +1,25 @@
+<app-header></app-header>
+<h4 *ngIf="quiz.length == 0" style="text-align:center;">Loading data</h4>
+<div *ngIf="quiz.length > 0" class="container">
+  <h4 style="text-align:center;">Question {{step}}/{{numberOfQuestions}}</h4>
+  <ul class="collection with-header">
+    <li class="collection-header">
+      <h4>{{temporalQuiz.word}}</h4>
+    </li>
+
+    <li class="collection-item"><a (click)="onClickAnswer('der', 0)"
+        [class]="classes[0]">der</a></li>
+    <li class="collection-item"><a (click)="onClickAnswer('das', 1)"
+        [class]="classes[1]">das</a></li>
+    <li class="collection-item"><a (click)="onClickAnswer('die', 2)"
+        [class]="classes[2]">die</a></li>
+  </ul>
+  <div class="button-bar">
+    <button class="btn indigo darken-1" (click)="quitQuiz()" name="action">Submit
+      <i class="material-icons right">check_circle</i>
+    </button>
+    <a class="btn indigo darken-1 margin-left" name="action" (click)="nextRound()">Next
+      <i class="material-icons right">navigate_next</i>
+    </a>
+  </div>
+</div>

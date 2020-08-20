@@ -8,6 +8,7 @@ import { AllWordsComponent } from './main/words/all-words/all-words.component';
 import { StatisticsComponent } from './main/statistics/statistics.component';
 import { LoadDataComponent } from './main/quiz/load-data/load-data.component';
 import { ResultsComponent } from './main/quiz/results/results.component';
+import { ArticleComponent } from './main/quiz/article/article.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'play/:id',
     component: LoadDataComponent,
+  },
+  {
+    path: 'play/article/:step',
+    component: ArticleComponent,
   },
   {
     path: 'play/:id/:step',

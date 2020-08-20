@@ -36,6 +36,8 @@ export class LoadDataComponent implements OnInit {
       this.quizService.getAllQuizzWords();
     } else if (value.toLowerCase() === 'mistake') {
       this.quizService.getMistakes();
+    } else if (value.toLowerCase() === 'article') {
+      this.quizService.getArticles();
     }
     this.router.navigate(['/play/' + value + '/0' ]);
 

@@ -107,6 +107,13 @@ export class QuizService {
     });
   }
 
+  getArticles() {
+    this.deleteQuiz();
+    return this.http.get < Quiz[] > ('http://localhost:9015/words/articles').subscribe(data => {
+      this.loadedQuiz.next(data);
+    });
+  }
+
   // statistic
 
   incrementCorrectAnswer(wordId: number): any {

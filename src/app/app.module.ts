@@ -22,6 +22,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ResultsComponent } from './main/quiz/results/results.component';
 import { AlertComponent } from './main/entry/alert/alert.component';
 import { AlertModule } from './main/entry/alert/alert.module';
+import { ArticleComponent } from './main/quiz/article/article.component';
 
 
 
@@ -36,6 +37,7 @@ import { AlertModule } from './main/entry/alert/alert.module';
     HeaderComponent,
     LoadDataComponent,
     ResultsComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
